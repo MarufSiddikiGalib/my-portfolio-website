@@ -51,7 +51,7 @@ export default function About() {
         ].map((tech, i) => (
           <div
             key={i}
-            className="flex flex-col items-center animate-float hover:scale-110 transition-transform duration-500"
+            className={`flex flex-col items-center animate-float delay-${i} hover:scale-110 transition-transform duration-500 `}
           >
             <div className="w-16 h-16 relative mb-2">
               <Image
@@ -67,13 +67,32 @@ export default function About() {
 <style jsx>{`
 @keyframes float {
   0% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
+  50% { transform: translateY(-35px); }
   100% { transform: translateY(0); }
 }
 
 .animate-float {
-  animation: float 3s ease-in-out infinite;
+  animation: float 4s ease-in-out infinite;
 }
+
+
+ .delay-0 {
+    animation-delay: 0s;
+  }
+
+  .delay-1 {
+    animation-delay: 0.3s;
+  }
+
+  .delay-2 {
+    animation-delay: 0.6s;
+  }
+
+  .delay-3 {
+    animation-delay: 0.9s;
+  }
+
+
 `}</style>
 
       </div>
