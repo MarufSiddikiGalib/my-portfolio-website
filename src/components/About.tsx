@@ -26,16 +26,16 @@ export default function About() {
 
         {/* Social Icons */}
         <div className="flex gap-6 justify-center md:justify-start mt-6 text-2xl text-gray-700 dark:text-gray-300">
-          <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="hover:text-black dark:hover:text-white transition">
+          <a href="https://github.com/MarufSiddikiGalib" target="_blank" rel="noopener noreferrer" className="hover:text-black dark:hover:text-white transition">
             <FaGithub />
           </a>
-          <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition">
+          <a href="https://www.linkedin.com/in/maruf-siddiki-galib-7360092b5/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition">
             <FaLinkedin />
           </a>
           <a href="mailto:marufsiddikig@gmail.com" className="hover:text-red-500 transition">
             <FaEnvelope />
           </a>
-          <a href="https://x.com/yourhandle" target="_blank" rel="noopener noreferrer" className="hover:text-black dark:hover:text-white transition">
+          <a href="" target="_blank" rel="noopener noreferrer" className="hover:text-black dark:hover:text-white transition">
             <FaXTwitter />
           </a>
         </div>
