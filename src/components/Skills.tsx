@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import { useEffect } from "react";
 
 const skills = {
   "Programming Languages": [
@@ -35,6 +36,39 @@ const skills = {
 };
 
 export default function Skills() {
+
+
+ // 👇 Animation trigger with IntersectionObserver
+   useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const el = entry.target;
+          if (entry.isIntersecting) {
+            // 👇 Remove disappear and trigger appear
+            el.classList.remove("animate-disappear");
+            el.classList.add("animate-appear");
+          } else {
+            // 👇 Remove appear and trigger disappear
+            el.classList.remove("animate-appear");
+            el.classList.add("animate-disappear");
+          }
+        });
+      },
+      { threshold: [0.2] } 
+    );
+
+    const elements = document.querySelectorAll(".skill-block");
+    elements.forEach((el) => observer.observe(el));
+
+    return () => {
+      elements.forEach((el) => observer.unobserve(el));
+    };
+  }, []);
+
+
+
+
   return (
     <section id="skills" className="py-20 bg-gradient-to-br from-white to-slate-100 dark:from-black dark:to-slate-900">
       <div className="max-w-6xl mx-auto px-6">
@@ -51,7 +85,8 @@ export default function Skills() {
               {items.map((skill, idx) => (
                 <div
                   key={idx}
-                  className="group w-24 md:w-28 text-center transition-transform duration-300 hover:scale-110 "
+                   // 👇 Added `skill-block` class for observer to detect
+                  className="skill-block opacity-0 group w-24 md:w-28 text-center transition-transform duration-300 hover:scale-110 "
                 >
                   <div className="w-16 h-16 mx-auto relative mb-2">
                     <Image
@@ -69,8 +104,41 @@ export default function Skills() {
         ))}
 
 <style jsx>{`
+         @keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+    
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+   
+  }
+}
 
-`}</style>
+.animate-appear {
+  animation: appear 0.8s ease forwards;
+}
+
+@keyframes disappear {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+    
+  }
+  to {
+    opacity: 0;
+    transform: translateX(40px);
+    
+  }
+}
+
+.animate-disappear {
+  animation: disappear 0.8s ease forwards;
+}
+
+        `}</style>
 
 
       </div>

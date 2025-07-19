@@ -14,7 +14,7 @@ export default function About() {
         <p className="text-lg text-black dark:text-white font-bold">Full Stack Developer</p>
          <p className="text-lg text-black dark:text-white font-bold">
     🎓 Pursuing Computer Science and Engineering at <br />
-    American International University-Bangladesh (AIUB)
+       American International University-Bangladesh (AIUB)
   </p>
         <p className="text-md text-black dark:text-white text-lg">📧 marufsiddikig@gmail.com</p>
         <p className="text-md text-black dark:text-white text-lg">📍 Dhaka, Bangladesh</p>
