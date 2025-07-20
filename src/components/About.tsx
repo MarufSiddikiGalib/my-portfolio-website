@@ -51,14 +51,14 @@ export default function About() {
         ].map((tech, i) => (
           <div
             key={i}
-            className={`flex flex-col items-center animate-float delay-${i} hover:scale-110 transition-transform duration-500 `}
+            className={`flex flex-col items-center animate-float delay-${i} transition-transform duration-500 `}
           >
             <div className="w-16 h-16 relative mb-2">
               <Image
                 src={tech.src}
                 alt={tech.name}
                 fill
-                className="object-contain"
+                className="object-contain hover:scale-120 transition-transform duration-200"
               />
             </div>
             <p className="text-gray-700 dark:text-gray-300">{tech.name}</p>
