@@ -86,14 +86,14 @@ export default function Skills() {
                 <div
                   key={idx}
                    // 👇 Added `skill-block` class for observer to detect
-                  className="skill-block opacity-0 group w-24 md:w-28 text-center transition-transform duration-300 hover:scale-110 "
+                  className="skill-block opacity-0 group w-24 md:w-28 text-center "
                 >
                   <div className="w-16 h-16 mx-auto relative mb-2">
                     <Image
                       src={skill.logo}
                       alt={skill.name}
                       fill
-                      className="object-contain"
+                      className="object-contain transition-transform duration-300 hover:scale-120"
                     />
                   </div>
                   <p className="text-sm text-gray-700 dark:text-gray-300">{skill.name}</p>

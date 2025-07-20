@@ -1,9 +1,24 @@
 // components/Hero.tsx
-
+"use client"
 import Image from "next/image";
 import { Button } from "@/components/ui/button"; // If using shadcn UI. Else, use <button>
+import { motion, Variants } from "framer-motion";
 
 export default function Hero() {
+
+
+const linkVariants: Variants = {
+    hover: {
+        
+      x: 6,
+      textShadow: "0px 0px 8px rgba(59, 130, 246, 0.8)",
+      transition: { type: "spring", stiffness: 300, damping: 10, },
+      
+     
+    },
+  };
+
+
   return (
     <section id ="home" className="min-h-screen flex flex-col-reverse md:flex-row items-center justify-between gap-10 px-6 md:px-20 py-10 bg-gradient-to-br from-white to-slate-100 dark:from-black dark:to-slate-900">
       {/* Left Side */}
@@ -14,8 +29,12 @@ export default function Hero() {
         </h1>
 
         <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
-          <Button className="px-6 py-3 text-lg rounded-full">
-            View Resume
+          <Button
+           className="px-6 py-3 text-lg rounded-full">
+            <motion.span
+             variants={linkVariants}
+              whileHover="hover"
+            > View Resume </motion.span>
           </Button>
         </a>
       </div>
