@@ -78,9 +78,9 @@ export function Component() {
         <motion.a 
          variants={linkVariants}
          whileHover="hover"
-        href="#education"
+        href="#projects"
         className="text-lg"
-        >Education</motion.a>
+        >Projects</motion.a>
 
 
         <motion.a 

@@ -137,7 +137,26 @@ export default function ProjectsSection() {
         />
 
 
-      
+      <ProjectCard
+          title="E Commerce"
+          description="A web application for online shoping platform this is under development you can visit and experience the developed part of it "
+          image="/project-image/e-commerce.png"
+          tech={[
+            "Next.js",
+            "React.js",
+            "Node.js",
+            "Tailwind CSS",
+            "Python",
+            "Django",
+          ]}
+          features={[
+            "buy and sell product",
+            "admin dashboard ",
+          ]}
+          liveLink="https://shop.wasikahmed.com/"
+          sourceCode=""
+        />
+
 
 
 
