@@ -111,8 +111,8 @@ export default function ProjectsSection() {
             "Real-time metro map",
             "Journey Planner using Google Map",
           ]}
-          liveLink="https://metro-rail-frontend.vercel.app/"
-          sourceCode="https://github.com/MarufSiddikiGalib/metro-rail-frontend"
+          liveLink="https://metro-rail-2.vercel.app/"
+          sourceCode="https://metro-rail-2.vercel.app/"
         />
 
 <br />
@@ -156,7 +156,7 @@ export default function ProjectsSection() {
             "admin dashboard ",
           ]}
           liveLink="https://shop.wasikahmed.com/"
-          sourceCode=""
+          sourceCode="https://shop.wasikahmed.com/"
         />
 
 
