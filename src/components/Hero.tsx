@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button"; // If using shadcn UI. Else, use <button>
 import { motion, Variants } from "framer-motion";
+import Magnet from '@/components/Magnet'
+
 
 export default function Hero() {
 
@@ -29,6 +31,8 @@ const linkVariants: Variants = {
         </h1>
 
         <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+
+        <Magnet padding={400} disabled={false} magnetStrength={12}>
           <Button
            className="px-6 py-3 text-lg rounded-full">
             <motion.span
@@ -36,6 +40,9 @@ const linkVariants: Variants = {
               whileHover="hover"
             > View Resume </motion.span>
           </Button>
+         </Magnet>
+         
+
         </a>
       </div>
 
@@ -43,7 +50,7 @@ const linkVariants: Variants = {
       <div className=" md:flex justify-center  ">
         <div className="w-64 h-64 rounded-full overflow-hidden shadow-2xl border-4  border-indigo-400 hover:shadow-pink-400/80 hover:ring-8 hover:ring-pink-300 hover:scale-110 transition-all duration-500">
           <Image
-            src="/my-avatar.jpeg" // Put your image in public/my-avatar.jpeg
+            src="/my-avatar.jpeg" 
             alt="Maruf Siddiki Galib"
             width={256}
             height={256}

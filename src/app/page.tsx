@@ -7,6 +7,7 @@ import Skills from '@/components/Skills';
 import ProjectCard from '@/components/ProjectCard';
 import Contact from '@/components/Contact'
 
+
 const page = () => {
   return (
     <div>
@@ -16,6 +17,8 @@ const page = () => {
       <Skills />
       <ProjectCard />
       <Contact />
+
+
 
 
     </div>
