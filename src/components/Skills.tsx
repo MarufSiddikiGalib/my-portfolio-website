@@ -55,7 +55,10 @@ export default function Skills() {
           }
         });
       },
-      { threshold: [0.2] } 
+      { 
+        threshold: 0.5,
+         rootMargin: "0px 0px -18% 0px", 
+      } 
     );
 
     const elements = document.querySelectorAll(".skill-block");
