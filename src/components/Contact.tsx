@@ -1,10 +1,9 @@
-
-
 'use client';
 
 import { useState } from 'react';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import emailjs from 'emailjs-com';
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -12,17 +11,55 @@ export default function ContactSection() {
     email: '',
     message: '',
   });
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Integration with EmailJS / backend API
-    console.log('Form Submitted:', formData);
-    alert('Thanks for reaching out!');
-    setFormData({ name: '', email: '', message: '' });
+    setLoading(true);
+
+    // Simple email validation
+    const emailPattern = /^[^@]+@[^@]+\.[^@]+$/;
+    if (!emailPattern.test(formData.email)) {
+      alert('Please enter a valid email address.');
+      setLoading(false);
+      return;
+    }
+
+    // Send email using EmailJS
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      message: formData.message,
+    };
+
+    try {
+      // Send message to your email (you'll need to use your EmailJS Service ID and Template ID)
+      await emailjs.send(
+        'service_vrwpvum',   // Your EmailJS service ID
+        'template_z5urz1c',  // Your EmailJS template ID
+        templateParams,
+        '7KuGIgNuAjbqUK_EI'       // Your EmailJS user ID
+      );
+
+      // Send thank-you email to the user
+      await emailjs.send(
+        'service_vrwpvum',   // Your EmailJS service ID
+        'template_egwhblu',  // Your thank-you email template
+        { to_email: formData.email },
+        '7KuGIgNuAjbqUK_EI'       // Your EmailJS user ID
+      );
+
+      alert('Thanks for reaching out! We will get back to you soon.');
+      setFormData({ name: '', email: '', message: '' }); // Clear form
+    } catch (error) {
+      alert('Something went wrong, please try again.');
+    }
+
+    setLoading(false);
   };
 
   return (
@@ -81,16 +118,17 @@ export default function ContactSection() {
           />
           <button
             type="submit"
+            disabled={loading}
             className="bg-blue-600 hover:bg-blue-700 transition-colors text-white font-bold py-3 px-6 rounded shadow-md"
           >
-            Send Message
+            {loading ? 'Sending...' : 'Send Message'}
           </button>
         </motion.form>
 
         <div className="flex justify-center gap-6 mt-6 text-2xl text-gray-700 dark:text-gray-300">
           <a href="mailto:marufsiddikig@gmail.com" className="hover:text-blue-600" aria-label="Email"><FaEnvelope /></a>
-          <a href="https://github.com/MarufSiddikiGalib" target="_blank" className="hover:text-blue-600" aria-label="GitHub"><FaGithub /></a>
-          <a href="https://www.linkedin.com/in/maruf-siddiki-galib-7360092b5/" target="_blank" className="hover:text-blue-600" aria-label="LinkedIn"><FaLinkedin /></a>
+          <a href="https://github.com/MarufSiddikiGalib" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600" aria-label="GitHub"><FaGithub /></a>
+          <a href="https://www.linkedin.com/in/maruf-siddiki-galib-7360092b5/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600" aria-label="LinkedIn"><FaLinkedin /></a>
         </div>
       </div>
     </section>
